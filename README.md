@@ -113,3 +113,21 @@ Ejemplos:
 > (palindrome? ’(h o l a))
 
 #f
+
+6. (4.5pts)Elabore una funcion llamada swapper que recibe 3 argumentos:
+un elemento E1, otro elemento E2, y una lista L. La funcion retorna una lista
+similar a L, solo que cada ocurrencia anterior de E1 sera reemplazada por E2
+y cada ocurrencia anterior de E2 sera reemplazada por E1 (Los elementos
+E1 y E2 deben pertenecer a L). Ejemplos:
+
+> (swapper ’a ’d ’(a b c d))
+
+(d b c a)
+
+> (swapper ’a ’d ’(a d () c d))
+
+(d a () c a)
+
+> (swapper ’x ’y ’(y y x y x y x x y))
+
+(x x y x y x y y x)
