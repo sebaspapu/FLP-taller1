@@ -114,7 +114,7 @@ Ejemplos:
 
 #f
 
-6. (4.5pts)Elabore una funcion llamada swapper que recibe 3 argumentos:
+6. (4.5pts) Elabore una funcion llamada swapper que recibe 3 argumentos:
 un elemento E1, otro elemento E2, y una lista L. La funcion retorna una lista
 similar a L, solo que cada ocurrencia anterior de E1 sera reemplazada por E2
 y cada ocurrencia anterior de E2 sera reemplazada por E1 (Los elementos
@@ -131,3 +131,16 @@ E1 y E2 deben pertenecer a L). Ejemplos:
 > (swapper ’x ’y ’(y y x y x y x x y))
 
 (x x y x y x y y x)
+
+7. (4.5pts) Elabore una funcion llamada cartesian-product que recibe como
+argumentos 2 listas de simbolos sin repeticiones L1 y L2. La funcion debe
+retornar una lista de tuplas que representen el producto cartesiano entre L1
+y L2. Los pares pueden aparecer en cualquier orden. Ejemplos:
+
+> (cartesian-product ’(a b c) ’(x y))
+
+((a x) (a y) (b x) (b y) (c x) (c y))
+
+> (cartesian-product ’(p q r) ’(5 6 7))
+
+((p 5) (p 6) (p 7) (q 5) (q 6) (q 7) (r 5) (r 6) (r 7))
