@@ -144,3 +144,23 @@ y L2. Los pares pueden aparecer en cualquier orden. Ejemplos:
 > (cartesian-product ’(p q r) ’(5 6 7))
 
 ((p 5) (p 6) (p 7) (q 5) (q 6) (q 7) (r 5) (r 6) (r 7))
+
+8. (4.5pts) Elabore una funcion llamada mapping que debe recibir como
+entrada 3 argumentos: una funcion unaria (que recibe un argumento) llamada
+F, y dos listas de numeros L1 y L2. La funcion debe retornar una lista de
+pares (a,b) siendo a elemento de L1 y b elemento deL 2, cumpliendose la
+propiedad que al aplicar la funcion unaria F con el argumento a, debe arrojar
+el numero b. Es decir, se debe cumplir que F(a) = b. (Las listas deben ser
+de igual tamaño). Ejemplos:
+
+> (mapping (lambda (d) (* d 2)) (list 1 2 3) (list 2 4 6))
+
+((1 2) (2 4) (3 6))
+
+> (mapping (lambda (d) (* d 3)) (list 1 2 2) (list 2 4 6))
+
+((2 6))
+
+> (mapping (lambda (d) (* d 2)) (list 1 2 3) (list 3 9 12))
+
+()
