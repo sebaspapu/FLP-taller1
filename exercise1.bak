@@ -6,25 +6,22 @@
 ;  := (nodo) n ́umero < ́arbol-binario> < ́arbol-binario>
 
 
-; my-append : list list -> list
-; concatena l1 con l2 de manera recursiva
+; left (1 () ()) cdr car
+; right cddar
 (define my-append(lambda (l1 l2)
    (if(null? l1) l2 (cons (car l1) (my-append (cdr l1)l2)))
  ))
 
-; invert : list -> list
-; retorna la lista l1 invertida
+; <lista> := empty
+; <lista> := int <lista>
 (define invert(lambda(l1)
     (if(null? l1) empty
          (my-append (invert (cdr l1)) (list (car l1)))
        )
  ))
 
-;(invert '(1 2 3 4 5))
+(invert '(1 2 3 4 5))
 
-; helper : int BST list -> list
-; Esta función busca el número en el árbol usando la propiedad del BST y
-; va construyendo la ruta que tomó. La ruta se guarda mientras baja por el árbol.
 (define helper (lambda (n bst [lst '()])
     (cond
         [(null? bst) empty]
@@ -36,18 +33,6 @@
       )
  ))
 
-
-; path : int BST -> list
-; retornamos la ruta(lista simbolos 'left y 'right) desde la raíz hasta el número n 
-; Y si n está en la raíz retornanos empty()
 (define path (lambda (n bst [lst '()])(
     invert (helper n bst lst)
  )))
-
-
-;Casos de prueba:
-;(path 5 '())
-;(path 40'(10()(20()(30()(40 () ())))))
-;(path 50'(50(30 (20 () ()) (40 () ()))(70 (60 () ()) (90 () ()))))
-
-
