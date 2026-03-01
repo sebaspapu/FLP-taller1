@@ -1,17 +1,31 @@
 #lang eopl
 
 ;; balanced-parentheses?
-;; Propósito:
-;; L -> boolean : Recibe una lista de símbolos 'O y 'C y retorna #t si
-;; está balanceada según las reglas, de lo contrario #f.
+;; Proposito:
+;; L -> boolean : Procedimiento que recibe una lista de simbolos L
+;; cuyos elementos representan parentesis (O para apertura, C para
+;; cierre), retorna #t si estan correctamente balanceados, #f en
+;; caso contrario.
+;;
+;; <lista> := ()
+;;          := (<simbolo> <lista>)
+;;
+;; L : lista de simbolos (O o C)
 
 (define balanced-parentheses?
   (lambda (L)
     ;; Iniciamos el contador en 0
     (verificar-balance L 0)))
 
-;; funcion auxiliar: verificar-balance : 
-;; Propósito: Funcion auxiliar que recorre la lista manteniendo el conteo de aperturas.
+;; verificar-balance
+;; Proposito:
+;; L x contador -> boolean : Procedimiento auxiliar que recorre la
+;; lista acumulando en contador las aperturas y cierres. Retorna #t
+;; si al final el contador es 0 y nunca fue negativo.
+;;
+;; L        : lista de simbolos
+;; contador : numero entero (aperturas pendientes de cerrar)
+
 (define verificar-balance
   (lambda (L contador)
     (cond

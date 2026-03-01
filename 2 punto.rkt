@@ -1,7 +1,14 @@
 #lang eopl
 
-; car: para obtener el primer valor de la lista
-; cdr: para obtener el resto de la lista
+;; down
+;; Proposito:
+;; L -> L' : Procedimiento que recibe una lista L y retorna una lista
+;; con cada elemento de L envuelto en un nivel adicional de paréntesis.
+;;
+;; <lista> := ()
+;;          := (<valor-de-scheme> <lista>)
+;;
+;; L : lista de valores
 
 (define down ; defino la funcion dandole un nombre (etiqueta)
   (lambda (L) ; y ahora si creo la funcion lambda y creo un argumento
@@ -18,7 +25,7 @@
     )
   )
 
-; casos de prueba
-;(down '(1 2 3))
-;(down '((una) (buena) (idea)))
-;(down '(un (objeto (mas)) complicado))
+;; Pruebas
+;; (down '(1 2 3))
+;; (down '((una) (buena) (idea)))
+;; (down '(un (objeto (mas)) complicado))

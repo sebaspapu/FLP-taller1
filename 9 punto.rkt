@@ -1,9 +1,15 @@
 #lang eopl
 
 ;; inversions
-;; Propósito:
-;; L -> int : Se recibe una lista de números diferentes L y retorna 
-;; el número total de inversiones encontradas.
+;; Proposito:
+;; L -> int : Procedimiento que recibe una lista de numeros diferentes L
+;; y retorna el numero total de inversiones. Una inversion es un par (i j)
+;; donde i < j (posicion) pero ai > aj (valor).
+;;
+;; <lista> := ()
+;;          := (<numero> <lista>)
+;;
+;; L : lista de numeros diferentes
 
 (define inversions
   (lambda (L)
@@ -14,7 +20,13 @@
     )
   )
 
-; funciones auxiliares:
+;; contar-menores
+;; Proposito:
+;; x x L -> int : Procedimiento auxiliar que cuenta cuantos elementos
+;; de la lista L son menores que x.
+;;
+;; x : numero
+;; L : lista de numeros
 
 (define contar-menores
   (lambda (x L)
