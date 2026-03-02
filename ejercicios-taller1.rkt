@@ -624,7 +624,7 @@
 ;; BST : árbol binario de búsqueda
 ;; n   : número
 
-;; my-append
+;; my-append-bst
 ;; Proposito:
 ;; L1 x L2 -> L : Procedimiento que concatena recursivamente la lista L1
 ;; con la lista L2
@@ -634,17 +634,17 @@
 ;;
 ;; L1 : lista
 ;; L2 : lista
-(define my-append(lambda (l1 l2)
+(define my-append-bst(lambda (l1 l2)
    (if(null? l1)
       l2
-      (cons (car l1) (my-append (cdr l1)l2)))
+      (cons (car l1) (my-append-bst (cdr l1)l2)))
  ))
 
-;pruebas my-append (funcion aux):
-;; (my-append '(1 2 3) '(4 5))
-;; (my-append '() '(7 8))
+;pruebas my-append-bst (funcion aux):
+;; (my-append-bst '(1 2 3) '(4 5))
+;; (my-append-bst '() '(7 8))
 
-;; invert
+;; invert-bst
 ;; Proposito:
 ;; L -> L : Procedimiento que retorna la lista L invertida
 ;;
@@ -652,16 +652,16 @@
 ;;          := (<valor-de-scheme> <lista>)
 ;;
 ;; L : lista
-(define invert(lambda(l1)
+(define invert-bst(lambda(l1)
     (if(null? l1) empty
-         (my-append (invert (cdr l1)) (list (car l1)))
+         (my-append-bst (invert-bst (cdr l1)) (list (car l1)))
        )
  ))
 
-;prueba invert (funcion aux):
-;(invert '(1 2 3 4 5))
+;prueba invert-bst (funcion aux):
+;(invert-bst '(1 2 3 4 5))
 
-;; helper
+;; helper-bst
 ;; Proposito:
 ;; n x BST x L -> L : Procedimiento que busca el número n en el árbol
 ;; binario de búsqueda BST usando su propiedad de orden y construye
@@ -676,19 +676,19 @@
 ;; n   : número a buscar
 ;; BST : árbol binario de búsqueda
 ;; L   : lista acumuladora de la ruta
-(define helper (lambda (n bst [lst '()])
+(define helper-bst (lambda (n bst [lst '()])
     (cond
         [(null? bst) empty]
         [(equal? n (car bst)) lst]
-        [(> (car bst) n) (helper n (cadr bst) (cons 'left lst))]
-        [(< (car bst) n) (helper n (caddr bst) (cons 'right lst))]
+        [(> (car bst) n) (helper-bst n (cadr bst) (cons 'left lst))]
+        [(< (car bst) n) (helper-bst n (caddr bst) (cons 'right lst))]
         [else empty]
 
       )
  ))
 
 
-;; path
+;; path-bst
 ;; Proposito:
 ;; n x BST -> L : Procedimiento que retorna la ruta (lista de símbolos
 ;; 'left y 'right) desde la raíz del árbol BST hasta el número n.
@@ -702,15 +702,15 @@
 ;;
 ;; n   : número a buscar
 ;; BST : árbol binario de búsqueda
-(define path (lambda (n bst [lst '()])(
-    invert (helper n bst lst)
+(define path-bst (lambda (n bst [lst '()])(
+    invert-bst (helper-bst n bst lst)
  )))
 
 
 ;Casos de prueba:
-;(path 5 '())
-;(path 40'(10()(20()(30()(40 () ())))))
-;(path 50'(50(30 (20 () ()) (40 () ()))(70 (60 () ()) (90 () ()))))
+;(path-bst 5 '())
+;(path-bst 40'(10()(20()(30()(40 () ())))))
+;(path-bst 50'(50(30 (20 () ()) (40 () ()))(70 (60 () ()) (90 () ()))))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
