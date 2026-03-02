@@ -10,7 +10,7 @@
 ;; Proposito:
 ;; L x P -> L' : Procedimiento que recibe una lista L de pares (x y)
 ;; y un predicado P, retorna una lista con los pares invertidos (y x)
-;; solo cuando ambos elementos cumplen con el predicado P.
+;; solo cuando ambos elementos cumplen con el predicado P
 ;;
 ;; <lista> := ()
 ;;          := (<par> <lista>)
@@ -63,7 +63,7 @@
 ;; down
 ;; Proposito:
 ;; L -> L' : Procedimiento que recibe una lista L y retorna una lista
-;; con cada elemento de L envuelto en un nivel adicional de paréntesis.
+;; con cada elemento de L envuelto en un nivel adicional de paréntesis
 ;;
 ;; <lista> := ()
 ;;          := (<valor-de-scheme> <lista>)
@@ -98,7 +98,7 @@
 ;; L x n x x x P -> L' : Procedimiento que recibe una lista L, una
 ;; posicion n, un elemento x y un predicado P. Retorna una lista igual
 ;; a L pero con el elemento en la posicion n reemplazado por x, solo
-;; si el elemento original cumple con P.
+;; si el elemento original cumple con P
 ;;
 ;; <lista> := ()
 ;;          := (<valor-de-scheme> <lista>)
@@ -143,7 +143,7 @@
 ;; filter-in
 ;; Proposito:
 ;; P x L -> L' : Procedimiento que recibe un predicado P y una lista L,
-;; retorna una lista con los elementos de L que satisfacen P.
+;; retorna una lista con los elementos de L que satisfacen P
 ;;
 ;; <lista> := ()
 ;;          := (<valor-de-scheme> <lista>)
@@ -176,7 +176,7 @@
 ;; Proposito:
 ;; palabra -> boolean : Procedimiento que recibe una lista de simbolos
 ;; y retorna #t si es palindromo (se lee igual de izquierda a derecha
-;; que de derecha a izquierda), #f en caso contrario.
+;; que de derecha a izquierda), #f en caso contrario
 ;;
 ;; <lista> := ()
 ;;          := (<simbolo> <lista>)
@@ -191,7 +191,7 @@
 
 ;; invertir
 ;; Proposito:
-;; L -> L' : Procedimiento auxiliar que retorna la lista L invertida.
+;; L -> L' : Procedimiento auxiliar que retorna la lista L invertida
 ;;
 ;; L : lista de valores
 
@@ -206,7 +206,7 @@
 ;; insertar-al-final
 ;; Proposito:
 ;; x x L -> L' : Procedimiento auxiliar que inserta el elemento x
-;; al final de la lista L.
+;; al final de la lista L
 ;;
 ;; x : valor de scheme
 ;; L : lista de valores
@@ -222,7 +222,7 @@
 ;; son-iguales?
 ;; Proposito:
 ;; L1 x L2 -> boolean : Procedimiento auxiliar que compara dos listas
-;; elemento a elemento, retorna #t si son iguales, #f en caso contrario.
+;; elemento a elemento, retorna #t si son iguales, #f en caso contrario
 ;;
 ;; L1 : lista de valores
 ;; L2 : lista de valores
@@ -250,7 +250,7 @@
 ;; Proposito:
 ;; E1 x E2 x L -> L' : Procedimiento que recibe dos elementos E1 y E2
 ;; y una lista L, retorna una lista igual a L pero con cada ocurrencia
-;; de E1 reemplazada por E2 y viceversa.
+;; de E1 reemplazada por E2 y viceversa
 ;;
 ;; <lista> := ()
 ;;          := (<valor-de-scheme> <lista>)
@@ -288,7 +288,7 @@
 ;; Proposito:
 ;; L1 x L2 -> L : Procedimiento que recibe dos listas de simbolos L1 y L2
 ;; sin repeticiones, retorna una lista de tuplas que representan el
-;; producto cartesiano entre L1 y L2.
+;; producto cartesiano entre L1 y L2
 ;;
 ;; <lista> := ()
 ;;          := (<simbolo> <lista>)
@@ -308,7 +308,7 @@
 ;; formar-pares
 ;; Proposito:
 ;; x x L -> L' : Procedimiento auxiliar que forma todos los pares
-;; posibles entre el elemento x y cada elemento de la lista L.
+;; posibles entre el elemento x y cada elemento de la lista L
 ;;
 ;; x : simbolo
 ;; L : lista de simbolos
@@ -325,7 +325,7 @@
 
 ;; unir-listas
 ;; Proposito:
-;; L1 x L2 -> L : Procedimiento auxiliar que concatena dos listas.
+;; L1 x L2 -> L : Procedimiento auxiliar que concatena dos listas
 ;;
 ;; L1 : lista de valores
 ;; L2 : lista de valores
@@ -351,7 +351,7 @@
 ;; F x L1 x L2 -> L : Procedimiento que recibe una funcion unaria F y
 ;; dos listas de numeros L1 y L2 de igual tamaño, retorna una lista de
 ;; pares (a b) donde a pertenece a L1 y b pertenece a L2, cumpliendose
-;; que F(a) = b.
+;; que F(a) = b
 ;;
 ;; <lista> := ()
 ;;          := (<numero> <lista>)
@@ -387,7 +387,7 @@
 ;; Proposito:
 ;; L -> int : Procedimiento que recibe una lista de numeros diferentes L
 ;; y retorna el numero total de inversiones. Una inversion es un par (i j)
-;; donde i < j (posicion) pero ai > aj (valor).
+;; donde i < j (posicion) pero ai > aj (valor)
 ;;
 ;; <lista> := ()
 ;;          := (<numero> <lista>)
@@ -397,8 +397,8 @@
 (define inversions
   (lambda (L)
     (if (null? L)
-        0 ;; Caso base: una lista vacía tiene 0 inversiones.
-        ;; Aqui,vamos sumando las inversiones del primer elemento contra el resto, más las inversiones que existan en el resto de la lista.
+        0 ;; Caso base: una lista vacía tiene 0 inversiones
+        ;; Aqui,vamos sumando las inversiones del primer elemento contra el resto, más las inversiones que existan en el resto de la lista
         (+ (contar-menores (car L) (cdr L))(inversions (cdr L))))
     )
   )
@@ -406,7 +406,7 @@
 ;; contar-menores
 ;; Proposito:
 ;; x x L -> int : Procedimiento auxiliar que cuenta cuantos elementos
-;; de la lista L son menores que x.
+;; de la lista L son menores que x
 ;;
 ;; x : numero
 ;; L : lista de numeros
@@ -415,7 +415,7 @@
   (lambda (x L)
     (cond
       [(null? L) 0]
-      ;; Aqui, si el elemento actual es menor que x, contamos 1 y seguimos.
+      ;; Aqui, si el elemento actual es menor que x, contamos 1 y seguimos
       [(< (car L) x) (+ 1 (contar-menores x (cdr L)))]
       ;; Si no, pues seguimos sin sumar nada.
       [else (contar-menores x (cdr L))])))
@@ -433,7 +433,7 @@
 ;; L -> boolean : Procedimiento que recibe una lista de simbolos L
 ;; cuyos elementos representan parentesis (O para apertura, C para
 ;; cierre), retorna #t si estan correctamente balanceados, #f en
-;; caso contrario.
+;; caso contrario
 ;;
 ;; <lista> := ()
 ;;          := (<simbolo> <lista>)
@@ -449,7 +449,7 @@
 ;; Proposito:
 ;; L x contador -> boolean : Procedimiento auxiliar que recorre la
 ;; lista acumulando en contador las aperturas y cierres. Retorna #t
-;; si al final el contador es 0 y nunca fue negativo.
+;; si al final el contador es 0 y nunca fue negativo
 ;;
 ;; L        : lista de simbolos
 ;; contador : numero entero (aperturas pendientes de cerrar)
@@ -486,7 +486,7 @@
 ;; F x L1 x L2 -> L : Procedimiento que recibe una función binaria F
 ;; y dos listas L1 y L2 de igual tamaño, retorna una lista donde la
 ;; posición n-ésima corresponde al resultado de aplicar F sobre los
-;; elementos en la posición n-ésima de L1 y L2.
+;; elementos en la posición n-ésima de L1 y L2
 ;;
 ;; <lista> := ()
 ;;          := (<valor-de-scheme> <lista>)
@@ -513,7 +513,7 @@
 ;; Proposito:
 ;; a x b x F x acum x filter -> valor : Procedimiento que aplica la
 ;; función binaria F a todos los elementos en el intervalo [a,b] que
-;; cumplen con el predicado filter, acumulando el resultado en acum.
+;; cumplen con el predicado filter, acumulando el resultado en acum
 ;;
 ;; a      : número (límite inferior del intervalo)
 ;; b      : número (límite superior del intervalo)
@@ -541,7 +541,7 @@
 ;; lrators x lrands -> valor : Procedimiento que recibe una lista de
 ;; funciones binarias lrators de tamaño n y una lista de números lrands
 ;; de tamaño n+1, retorna el resultado de aplicar sucesivamente las
-;; operaciones en lrators a los valores en lrands.
+;; operaciones en lrators a los valores en lrands
 ;;
 ;; <lista-operadores> := ()
 ;;                     := (<función-binaria> <lista-operadores>)
@@ -567,13 +567,402 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;  < ́arbol-binario> := ( ́arbol-vacıo) empty
+;  := (nodo) n ́umero < ́arbol-binario> < ́arbol-binario>
 
 
+; my-append : list list -> list
+; concatena l1 con l2 de manera recursiva
+(define my-append(lambda (l1 l2)
+   (if(null? l1) l2 (cons (car l1) (my-append (cdr l1)l2)))
+ ))
+
+; invert : list -> list
+; retorna la lista l1 invertida
+(define invert(lambda(l1)
+    (if(null? l1) empty
+         (my-append (invert (cdr l1)) (list (car l1)))
+       )
+ ))
+
+;(invert '(1 2 3 4 5))
+
+; helper : int BST list -> list
+; Esta función busca el número en el árbol usando la propiedad del BST y
+; va construyendo la ruta que tomó. La ruta se guarda mientras baja por el árbol
+(define helper (lambda (n bst [lst '()])
+    (cond
+        [(null? bst) empty]
+        [(equal? n (car bst)) lst]
+        [(> (car bst) n) (helper n (cadr bst) (cons 'left lst))]
+        [(< (car bst) n) (helper n (caddr bst) (cons 'right lst))]
+        [else empty]
+
+      )
+ ))
 
 
+; path : int BST -> list
+; retornamos la ruta(lista simbolos 'left y 'right) desde la raíz hasta el número n 
+; Y si n está en la raíz retornanos empty()
+(define path (lambda (n bst [lst '()])(
+    invert (helper n bst lst)
+ )))
 
 
+;Casos de prueba:
+;(path 5 '())
+;(path 40'(10()(20()(30()(40 () ())))))
+;(path 50'(50(30 (20 () ()) (40 () ()))(70 (60 () ()) (90 () ()))))
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; <arbol-binario> := empty
+;;                  := (<numero> <arbol-binario> <arbol-binario>)
+;;
+;; BST : árbol binario de búsqueda
+;; n   : número
+
+;; my-append
+;; Proposito:
+;; L1 x L2 -> L : Procedimiento que concatena recursivamente la lista L1
+;; con la lista L2
+;;
+;; <lista> := ()
+;;          := (<valor-de-scheme> <lista>)
+;;
+;; L1 : lista
+;; L2 : lista
+(define my-append(lambda (l1 l2)
+   (if(null? l1)
+      l2
+      (cons (car l1) (my-append (cdr l1)l2)))
+ ))
+
+;pruebas my-append (funcion aux):
+;; (my-append '(1 2 3) '(4 5))
+;; (my-append '() '(7 8))
+
+;; invert
+;; Proposito:
+;; L -> L : Procedimiento que retorna la lista L invertida
+;;
+;; <lista> := ()
+;;          := (<valor-de-scheme> <lista>)
+;;
+;; L : lista
+(define invert(lambda(l1)
+    (if(null? l1) empty
+         (my-append (invert (cdr l1)) (list (car l1)))
+       )
+ ))
+
+;prueba invert (funcion aux):
+;(invert '(1 2 3 4 5))
+
+;; helper
+;; Proposito:
+;; n x BST x L -> L : Procedimiento que busca el número n en el árbol
+;; binario de búsqueda BST usando su propiedad de orden y construye
+;; la ruta recorrida como una lista de símbolos 'left y 'right
+;;
+;; <arbol-binario> := empty
+;;                  := (<numero> <arbol-binario> <arbol-binario>)
+;;
+;; <lista> := ()
+;;          := (<simbolo> <lista>)
+;;
+;; n   : número a buscar
+;; BST : árbol binario de búsqueda
+;; L   : lista acumuladora de la ruta
+(define helper (lambda (n bst [lst '()])
+    (cond
+        [(null? bst) empty]
+        [(equal? n (car bst)) lst]
+        [(> (car bst) n) (helper n (cadr bst) (cons 'left lst))]
+        [(< (car bst) n) (helper n (caddr bst) (cons 'right lst))]
+        [else empty]
+
+      )
+ ))
+
+
+;; path
+;; Proposito:
+;; n x BST -> L : Procedimiento que retorna la ruta (lista de símbolos
+;; 'left y 'right) desde la raíz del árbol BST hasta el número n.
+;; Si n está en la raíz retorna empty
+;;
+;; <arbol-binario> := empty
+;;                  := (<numero> <arbol-binario> <arbol-binario>)
+;;
+;; <lista> := ()
+;;          := (<simbolo> <lista>)
+;;
+;; n   : número a buscar
+;; BST : árbol binario de búsqueda
+(define path (lambda (n bst [lst '()])(
+    invert (helper n bst lst)
+ )))
+
+
+;Casos de prueba:
+;(path 5 '())
+;(path 40'(10()(20()(30()(40 () ())))))
+;(path 50'(50(30 (20 () ()) (40 () ()))(70 (60 () ()) (90 () ()))))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; pairs_sum
+;; Proposito:
+;; P1 x P2 -> P : Procedimiento que recibe dos pares P1 y P2
+;; y retorna un nuevo par cuya primera posición es la suma
+;; de los primeros elementos y cuya segunda posición es la
+;; suma de los segundos elementos
+;;
+;; <pairs> := ( <int> <int> )
+;;
+;; P1 : par (pares impares)
+;; P2 : par (pares impares)
+(define pairs_sum (lambda (l1 l2)
+    (list (+(car l1) (car l2)) (+(cadr l1) (cadr l2)))
+ ))
+
+;caso pruba pairs_sum:
+;; (pairs_sum '(1 2) '(3 4))
+;; (pairs_sum '(0 1) '(5 7))
+
+
+;; sum-left1
+;; Proposito:
+;; P -> P : Procedimiento que incrementa en 1 la cantidad
+;; de números pares (primer elemento del par)
+;;
+;; <pairs> := ( <int> <int> )
+;;
+;; P : par (pares impares)
+(define sum-left1 (lambda (lst)(
+   cons (+ (car lst) 1) (cdr lst)
+ )))
+
+;caso prueba sum-left:
+;; (sum-left1 '(3 5))
+
+
+;; sum-right1
+;; Proposito:
+;; P -> P : Procedimiento que incrementa en 1 la cantidad
+;; de números impares (segundo elemento del par)
+;;
+;; <pairs> := ( <int> <int> )
+;;
+;; P : par (pares impares)
+(define sum-right1 (lambda (lst)(
+   list (car lst) (+(cadr lst)1)
+ )))
+
+;caso prueba sum-right:
+;; (sum-right '(0 2))
+
+
+;; count-odd-and-even
+;; Proposito:
+;; BST -> P : Procedimiento que recorre recursivamente el
+;; árbol binario BST y retorna un par donde:
+;;   - la primera posición es la cantidad de números pares
+;;   - la segunda posición es la cantidad de números impares
+;;
+;; <arbol-binario> := empty
+;;                  := (<numero> <arbol-binario> <arbol-binario>)
+;;
+;; <pairs> := ( <int> <int> )
+;;
+;; BST : árbol binario
+(define count-odd-and-even (lambda (bst)(
+    cond
+     [(null? bst) '(0 0)]
+     [(odd? (car bst)) (sum-right1
+                        (pairs_sum (count-odd-and-even (cadr bst))
+                                   (count-odd-and-even (caddr bst))))]
+     [(even? (car bst)) (sum-left1
+                         (pairs_sum (count-odd-and-even (cadr bst))
+                                    (count-odd-and-even (caddr bst))))]
+     [else '(0 0)]
+ )))
+
+;Casos de prueba
+;(count-odd-and-even '())
+;(count-odd-and-even '(8(4 (2 () ()) (6 () ()))(10 () (12 () ()))))
+;(count-odd-and-even '(5 (3 (1 () ()) ()) (8 () (10 (9 () ()) ()))))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+;; <movimiento> := ( <simbolo> <simbolo> )
+;;
+;; <lista-movimientos> := ()
+;;                      := ( <movimiento> <lista-movimientos> )
+;;
+;; movimiento: (origen destino)
+
+
+;; hanoi
+;; Proposito:
+;; n x S x S x S -> LM : Procedimiento que genera la lista de
+;; movimientos necesarios para resolver este problema, se mueven los n discos desde la torre
+;; origen hacia la torre destino usando una torre auxiliar
+(define hanoi
+  (lambda (n origen auxiliar destino)
+    (cond
+      [(= n 0)
+       '()]
+      [(= n 1)
+       (list (list origen destino))] ;se mueve el disco grande
+      [else
+       (append
+        (hanoi (- n 1) origen destino auxiliar) ;trucamos aux y destino para llevar los discos pequeños  al aux
+        (list (list origen destino))
+        (hanoi (- n 1) auxiliar origen destino)) ;discos pequños a destino
+       ])))
+
+;Casos de prueba:
+;(hanoi 0 'A 'B 'C)
+;(hanoi 3 'C 'A 'B)
+;(hanoi 4 'x 'y 'z)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+;; coin-change
+;; Proposito:
+;; monto x LM -> N : Procedimiento que calcula el número total
+;; de formas distintas de obtener el monto usando las
+;; denominaciones dadas en la lista de monedas
+;;
+;; <nat> := 0,1,2...
+;;
+;; <lista-monedas> := ()
+;;                  := (<nat> <lista-monedas>)
+;;
+;; monto   : número natural
+;; monedas : lista de números naturales positivos
+;;
+;; Retorna:
+;; Un número natural que representa la cantidad de combinaciones posibles.
+
+(define coin-change
+  (lambda (monto monedas)
+    (cond
+      [(= monto 0) 1] ;caso de combinacion vacia
+      [(< monto 0) 0] ;caso erroneo
+      [(null? monedas) 0]
+      [else
+       (+
+        ;; usar la primera moneda
+        (coin-change (- monto (car monedas)) monedas)
+        ;; no usar la primera moneda
+        (coin-change monto (cdr monedas)))])))
+
+;casos de prueba:
+;; (coin-change 0 '(1 2 5))
+;; (coin-change 5 '(1 2 5))
+;; (coin-change 10 '(1 5))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; <nat> := 0 | succ(<Nat>)
+;;
+;; <fila-pascal> := ()
+;;                 := (<nat> <fila-pascal>)
+;;
+;; N : número natural (N >= 1)
+
+
+;; add-left
+;; Proposito:
+;; L -> L : Agrega un 0 al final de la lista
+;;
+;; <fila-pascal> := ()
+;;                 := (<nat> <fila-pascal>)
+;;
+;; L : lista de números naturales
+;; 0 | succ(<Nat>): 0,1,2,3.... (explicacion)
+(define add-left
+  (lambda (lst)
+    (append lst '(0))))
+
+;caso prueba add-lerft (funcion aux):
+;; (add-left '(1 3 3 1))
+
+
+;; add-right
+;; Proposito:
+;; L -> L : Agrega un 0 al inicio de la lista
+;;
+;; <fila-pascal> := ()
+;;                 := (<nat> <fila-pascal>)
+;;
+;; L : lista de números naturales
+(define add-right
+  (lambda (lst)
+    (cons 0 lst)))
+
+;caso de prueba add-right(funcion aux):
+;; (add-right '(1 1))
+
+
+;; sum-lists
+;; Proposito:
+;; L1 x L2 -> L : Retorna una lista donde esa misma lista es la suma de
+;; los elementos correspondientes de L1 y L2 y donde ambas tienen el mismo tamaño
+;; <fila-pascal> := ()
+;;                 := (<nat> <fila-pascal>)
+;;
+;; L1 : list
+;; L2 : list 
+
+(define sum-lists
+  (lambda (l1 l2)
+    (if (null? l1)
+        '()
+        (cons (+ (car l1) (car l2))
+              (sum-lists (cdr l1) (cdr l2))))))
+
+;caso de prueba sum-lists
+;; (sum-lists '(0 1 3 3 1) '(1 3 3 1 0))
+;; (sum-lists '() '())
+
+
+;; pascal
+;; Proposito:
+;; N -> L : Retorna la fila N del triángulo de Pascal
+;;
+;; <nat> := 0 | succ(<Nat>)
+;;
+;; <fila-pascal> := ()
+;;                 := (<nat> <fila-pascal>)
+;;
+;; N : número natural (N >= 1)
+
+(define pascal
+  (lambda (N)
+    (cond
+      [(= N 1) '(1)]
+      [else
+       (let ([prev (pascal (- N 1))])
+         (sum-lists
+          (add-right prev)
+          (add-left prev)))])))
+
+;;casos de prueba:
+;; (pascal 1)
+;; (pascal 2)
+;; (pascal 5)
 
 
 
